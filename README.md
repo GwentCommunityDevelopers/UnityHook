@@ -1,3 +1,7 @@
+# GwentHook
+
+This is a fork of UnityHook for Hearthstone, modified to hook into Gwent.
+
 # UnityHook
 
 UnityHook is a simple platform for hooking managed function calls, targeting
