@@ -1,10 +1,7 @@
-using Hooks;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+using GwentUnity;
 using System.IO;
-using System.Linq;
-using System.Text;
+using RedTools;
 
 namespace Hooks
 {
@@ -22,27 +19,30 @@ namespace Hooks
 
 		public static string[] GetExpectedMethods()
 		{
-			return new string[] { "GwentWebServiceClient.Services.GOGRest.LiveDataService::GetLiveDataPackage" };
+			return new string[] {
+				"GwentUnity.AppLogin.InitializeDefinitions::LoadDefinitions"
+			};
 		}
 
 		object OnCall(string typeName, string methodName, object thisObj, object[] args, IntPtr[] refArgs, int[] refIdxMatch)
 		{
-			Debug.WriteLine("On Call");
-			if (args != null)
-			{
-				var sw = new StreamWriter(@"D:\gwent.txt");
-				sw.WriteLine(typeName);
-				sw.WriteLine(methodName);
-				for(int i = 0; i < 4; i++)
-				{
-					sw.WriteLine((string) args[i]);
-				}
-				sw.Flush();
-				sw.Close();
+			if (methodName == "LoadDefinitions") {
+				string hash = ConfigManager.Data.hash;
+				string version = ConfigManager.Data.version;
 
-				File.WriteAllText("gwent.txt", methodName);
+				string clientVersion = GwentSettings.Instance.ClientVersion;
+				string secret = GwentSettings.Instance.Secret;
+				string[] gwentArgs = new string[] {
+					hash,
+					version,
+					clientVersion,
+					secret
+				};
+
+				File.WriteAllLines("gwent_data_args.txt", gwentArgs);
 			}
-			return new object();
+
+			return null;
 		}
 	}
 }

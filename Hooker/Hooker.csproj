@@ -67,7 +67,7 @@
     <Compile Include="src\Restore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="example_hooks">
+    <None Include="gwent_hooks">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
