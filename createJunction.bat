@@ -4,7 +4,7 @@ REM Change the HS_INSTALL_PATH value below before running this script.
 
 REM Change the following location to the hearthstone installation folder!
 REM Don't forget to include the final slash
-SET HS_INSTALL_PATH=D:\Program Files (x86)\Hearthstone\
+SET HS_INSTALL_PATH=D:\GOG\GWENT\
 
 REM ***************************************
 REM DO NOT change anything below this line!
