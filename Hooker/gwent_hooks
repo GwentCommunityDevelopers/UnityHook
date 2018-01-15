@@ -29,4 +29,6 @@
 // System.Net.Sockets.Socket::EndSend
 // System.Net.Sockets.Socket::EndReceive
 
-GwentUnity.AppLogin.InitializeDefinitions::LoadDefinitions
+GwentUnity.AppLogin.InitializeDefinitions::StartLoadDefinitions
+GwentUnity.AppLogin.InitializeDefinitions::StardLoadDefaultDefinitions
+GwentUnity.AppMenusStateV2::OnEnterState
